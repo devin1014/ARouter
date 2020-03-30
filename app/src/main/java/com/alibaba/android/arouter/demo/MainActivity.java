@@ -26,20 +26,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
+{
     private static Activity activity;
 
+    public static Activity getThis()
+    {
+        return activity;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         activity = this;
-    }
-
-    public static Activity getThis() {
-        return activity;
     }
 
     /**
@@ -48,8 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @param v The view that was clicked.
      */
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
             case R.id.openLog:
                 ARouter.openLog();
                 break;
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ARouter.openDebug();
                 ARouter.init(getApplication());
                 break;
-            case R.id.normalNavigation:
+            case R.id.normalNavigation: // 简单的应用内跳转
                 ARouter.getInstance()
                         .build("/test/activity2")
                         .navigation();
@@ -98,7 +102,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .navigation(this);
                 break;
             case R.id.newVersionAnim:
-                if (Build.VERSION.SDK_INT >= 16) {
+                if (Build.VERSION.SDK_INT >= 16)
+                {
                     ActivityOptionsCompat compat = ActivityOptionsCompat.
                             makeScaleUpAnimation(v, v.getWidth() / 2, v.getHeight() / 2, 0, 0);
 
@@ -106,21 +111,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             .build("/test/activity2")
                             .withOptionsCompat(compat)
                             .navigation();
-                } else {
+                }
+                else
+                {
                     Toast.makeText(this, "API < 16,不支持新版本动画", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.interceptor:
                 ARouter.getInstance()
                         .build("/test/activity4")
-                        .navigation(this, new NavCallback() {
+                        .navigation(this, new NavCallback()
+                        {
                             @Override
-                            public void onArrival(Postcard postcard) {
+                            public void onArrival(Postcard postcard)
+                            {
 
                             }
 
                             @Override
-                            public void onInterrupt(Postcard postcard) {
+                            public void onInterrupt(Postcard postcard)
+                            {
                                 Log.d("ARouter", "被拦截了");
                             }
                         });
@@ -175,24 +185,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ARouter.getInstance().destroy();
                 break;
             case R.id.failNav:
-                ARouter.getInstance().build("/xxx/xxx").navigation(this, new NavCallback() {
+                ARouter.getInstance().build("/xxx/xxx").navigation(this, new NavCallback()
+                {
                     @Override
-                    public void onFound(Postcard postcard) {
+                    public void onFound(Postcard postcard)
+                    {
                         Log.d("ARouter", "找到了");
                     }
 
                     @Override
-                    public void onLost(Postcard postcard) {
+                    public void onLost(Postcard postcard)
+                    {
                         Log.d("ARouter", "找不到了");
                     }
 
                     @Override
-                    public void onArrival(Postcard postcard) {
+                    public void onArrival(Postcard postcard)
+                    {
                         Log.d("ARouter", "跳转完了");
                     }
 
                     @Override
-                    public void onInterrupt(Postcard postcard) {
+                    public void onInterrupt(Postcard postcard)
+                    {
                         Log.d("ARouter", "被拦截了");
                     }
                 });
@@ -221,10 +236,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
+        switch (requestCode)
+        {
             case 666:
                 Log.e("activityResult", String.valueOf(resultCode));
                 break;

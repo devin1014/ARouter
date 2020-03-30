@@ -16,7 +16,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
  * A simple {@link Fragment} subclass.
  */
 @Route(path = "/test/fragment")
-public class BlankFragment extends Fragment {
+public class BlankFragment extends Fragment
+{
 
     @Autowired
     String name;
@@ -24,14 +25,16 @@ public class BlankFragment extends Fragment {
     @Autowired(required = true)
     TestObj obj;
 
-    public BlankFragment() {
+    public BlankFragment()
+    {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         TextView textView = new TextView(getActivity());
         return textView;
     }

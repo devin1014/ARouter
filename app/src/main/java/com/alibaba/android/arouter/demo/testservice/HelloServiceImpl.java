@@ -14,11 +14,13 @@ import com.alibaba.android.arouter.facade.annotation.Route;
  * @since 2017/1/3 10:26
  */
 @Route(path = "/yourservicegroupname/hello")
-public class HelloServiceImpl implements HelloService {
+public class HelloServiceImpl implements HelloService
+{
     Context mContext;
 
     @Override
-    public void sayHello(String name) {
+    public void sayHello(String name)
+    {
         Toast.makeText(mContext, "Hello " + name, Toast.LENGTH_SHORT).show();
     }
 
@@ -28,7 +30,8 @@ public class HelloServiceImpl implements HelloService {
      * @param context ctx
      */
     @Override
-    public void init(Context context) {
+    public void init(Context context)
+    {
         mContext = context;
         Log.e("testService", HelloService.class.getName() + " has init.");
     }

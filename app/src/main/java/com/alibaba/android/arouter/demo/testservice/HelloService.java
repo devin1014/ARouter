@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.facade.template.IProvider;
  * @version 1.0
  * @since 2017/1/3 10:26
  */
-public interface HelloService extends IProvider {
+public interface HelloService extends IProvider
+{
     void sayHello(String name);
 }

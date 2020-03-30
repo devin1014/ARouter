@@ -14,16 +14,19 @@ import com.alibaba.android.arouter.facade.template.IProvider;
  * @since 2017/4/24 下午9:04
  */
 @Route(path = "/yourservicegroupname/single")
-public class SingleService implements IProvider {
+public class SingleService implements IProvider
+{
 
     Context mContext;
 
-    public void sayHello(String name) {
+    public void sayHello(String name)
+    {
         Toast.makeText(mContext, "Hello " + name, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void init(Context context) {
+    public void init(Context context)
+    {
         mContext = context;
     }
 }

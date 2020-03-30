@@ -10,18 +10,21 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 @Route(path = "/test/activity2")
-public class Test2Activity extends AppCompatActivity {
-
+public class Test2Activity extends AppCompatActivity
+{
     @Autowired
     String key1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test2);
 
         String value = getIntent().getStringExtra("key1");
-        if (!TextUtils.isEmpty(value)) {
+
+        if (!TextUtils.isEmpty(value))
+        {
             Toast.makeText(this, "exist param :" + value, Toast.LENGTH_LONG).show();
         }
 

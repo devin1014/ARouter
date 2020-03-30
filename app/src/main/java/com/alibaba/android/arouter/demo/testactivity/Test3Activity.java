@@ -13,7 +13,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
  * 自动注入的测试用例
  */
 @Route(path = "/test/activity3")
-public class Test3Activity extends AppCompatActivity {
+public class Test3Activity extends AppCompatActivity
+{
 
     @Autowired
     String name;
@@ -28,7 +29,8 @@ public class Test3Activity extends AppCompatActivity {
     private long high;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1);
 
@@ -36,7 +38,7 @@ public class Test3Activity extends AppCompatActivity {
 
         String params = String.format("name=%s, age=%s, girl=%s, high=%s", name, age, girl, high);
 
-        ((TextView)findViewById(R.id.test)).setText("I am " + Test3Activity.class.getName());
-        ((TextView)findViewById(R.id.test2)).setText(params);
+        ((TextView) findViewById(R.id.test)).setText("I am " + Test3Activity.class.getName());
+        ((TextView) findViewById(R.id.test2)).setText(params);
     }
 }
