@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.kotlinNavigation:
                 ARouter.getInstance()
-                        .build("/kotlin/inherit_wired")
+                        .build("/module_kotlin/inherit_wired")
                         .withString("parentName", "老王他爸")
                         .withInt("parentAge", 56)
                         .withString("name", "老王")
@@ -161,11 +161,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ARouter.getInstance().navigation(HelloService.class).sayHello("mike");
                 break;
             case R.id.navToMoudle1:
-                ARouter.getInstance().build("/module/1").navigation();
+                ARouter.getInstance().build("/module_java/1").navigation();
                 break;
             case R.id.navToMoudle2:
                 // 这个页面主动指定了Group名
-                ARouter.getInstance().build("/module/2", "m2").navigation();
+                ARouter.getInstance().build("/module_java/2", "m2").navigation();
+                break;
+            case R.id.navToMoudle3:
+                // 这个页面主动指定了Group名
+                ARouter.getInstance().build("/module_kotlin/1").navigation();
                 break;
             case R.id.destroy:
                 ARouter.getInstance().destroy();

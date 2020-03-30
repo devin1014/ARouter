@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.alibaba.android.arouter.demo.kotlin.KotlinNormalActivity">
+    tools:context="com.alibaba.android.arouter.demo.kotlin.KotlinInheritActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="Kotlin inherit activity."
-        android:textColor="#000000"
         android:textSize="16dp"
         android:textStyle="bold"
         tools:ignore="HardcodedText,SpUsage" />
@@ -21,7 +20,7 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:text="content" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
 
 </LinearLayout>

@@ -9,6 +9,7 @@
     <application>
         <activity android:name=".KotlinAutowiredActivity" />
         <activity android:name=".KotlinInheritActivity" />
+        <activity android:name=".KotlinActivity"/>
     </application>
 
 </manifest>

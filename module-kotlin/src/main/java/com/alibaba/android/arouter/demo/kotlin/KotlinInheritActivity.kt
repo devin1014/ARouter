@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import kotlinx.android.synthetic.main.activity_kotlin_autowired.*
 
-@Route(path = "/kotlin/inherit_wired")
+@Route(path = "/module_kotlin/inherit_wired")
 class KotlinInheritActivity : KotlinBaseActivity() {
 
     @Autowired
