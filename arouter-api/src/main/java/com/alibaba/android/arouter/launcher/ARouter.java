@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 
 import com.alibaba.android.arouter.exception.InitException;
 import com.alibaba.android.arouter.facade.Postcard;
@@ -137,8 +138,8 @@ public final class ARouter {
     }
 
     public void inject(Object object, boolean parseInherit) {
-        if(parseInherit && object instanceof Activity){
-            injectActivity(object);
+        if(parseInherit && (object instanceof Activity || object instanceof android.app.Fragment || object instanceof android.support.v4.app.Fragment)){
+            injectActivityOrFragment(object);
         }
         else{
             _ARouter.inject(object);
@@ -148,7 +149,7 @@ public final class ARouter {
     /**
      * Inject params and services for activity
      */
-    private void injectActivity(Object object) {
+    private void injectActivityOrFragment(Object object) {
         _ARouter.inject(object, parseObjectInherits(object));
     }
 
@@ -157,8 +158,10 @@ public final class ARouter {
         List<Class<?>> list = new ArrayList<>();
         while (targetClass!=null
                 && !targetClass.getName().equalsIgnoreCase("android.support.v7.app.AppCompatActivity")
-                    && !targetClass.getName().equalsIgnoreCase("android.app.Activity")
-                        && !targetClass.getName().equalsIgnoreCase("java.lang.Object")){
+                    && !targetClass.getName().equalsIgnoreCase("android.support.v4.app.Fragment")
+                        && !targetClass.getName().equalsIgnoreCase("android.app.Activity")
+                            && !targetClass.getName().equalsIgnoreCase("android.app.Fragment")
+                                && !targetClass.getName().equalsIgnoreCase("java.lang.Object")){
             list.add(targetClass);
             targetClass = targetClass.getSuperclass();
         }

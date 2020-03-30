@@ -99,6 +99,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .withInt("age", 23)
                         .navigation();
                 break;
+            case R.id.navigation2TestFragment:
+                ARouter.getInstance().build("/test/test_fragment").navigation();
+                break;
             case R.id.normalNavigation2: // 带ForResult跳转
                 ARouter.getInstance()
                         .build("/test/activity2")

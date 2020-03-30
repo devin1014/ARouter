@@ -104,6 +104,13 @@
                 android:text="携带参数(可继承)的应用内跳转" />
 
             <Button
+                android:id="@+id/navigation2TestFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="Fragment测试" />
+
+            <Button
                 android:id="@+id/normalNavigation2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
