@@ -1,5 +1,6 @@
 package com.alibaba.android.arouter.demo.testactivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -11,7 +12,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 @Route(path = "/test/activity4")
 public class Test4Activity extends AppCompatActivity
 {
-
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

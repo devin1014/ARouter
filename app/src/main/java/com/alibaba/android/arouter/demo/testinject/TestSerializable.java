@@ -1,5 +1,7 @@
 package com.alibaba.android.arouter.demo.testinject;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
@@ -18,5 +20,15 @@ public class TestSerializable implements Serializable
     {
         this.name = name;
         this.id = id;
+    }
+
+    @NonNull
+    @Override
+    public String toString()
+    {
+        return "{" +
+                "name:" + name +
+                "\nid:" + id +
+                "}";
     }
 }

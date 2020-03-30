@@ -10,7 +10,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 public class SchemeFilterActivity extends Activity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

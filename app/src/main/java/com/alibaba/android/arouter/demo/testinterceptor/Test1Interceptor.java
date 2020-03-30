@@ -22,7 +22,7 @@ import com.alibaba.android.arouter.facade.template.IInterceptor;
 @Interceptor(priority = 7)
 public class Test1Interceptor implements IInterceptor
 {
-    Context mContext;
+    private Context mContext;
 
     /**
      * The operation of this interceptor.
@@ -35,7 +35,6 @@ public class Test1Interceptor implements IInterceptor
     {
         if ("/test/activity4".equals(postcard.getPath()))
         {
-
             // 这里的弹窗仅做举例，代码写法不具有可参考价值
             final AlertDialog.Builder ab = new AlertDialog.Builder(MainActivity.getThis());
             ab.setCancelable(false);
@@ -91,6 +90,6 @@ public class Test1Interceptor implements IInterceptor
     public void init(Context context)
     {
         mContext = context;
-        Log.e("testService", Test1Interceptor.class.getName() + " has init.");
+        Log.i("testService", Test1Interceptor.class.getName() + " has init.");
     }
 }

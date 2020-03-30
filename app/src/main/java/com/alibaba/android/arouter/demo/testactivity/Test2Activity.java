@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.demo.R;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 @Route(path = "/test/activity2")
 public class Test2Activity extends AppCompatActivity
@@ -21,6 +22,7 @@ public class Test2Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test2);
 
+        //ARouter.getInstance().inject(this);
         String value = getIntent().getStringExtra("key1");
 
         if (!TextUtils.isEmpty(value))

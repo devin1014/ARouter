@@ -2,6 +2,7 @@ package com.alibaba.android.arouter.demo;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,6 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 @Route(path = "/test/fragment")
 public class BlankFragment extends Fragment
 {
-
     @Autowired
     String name;
 
@@ -30,13 +30,10 @@ public class BlankFragment extends Fragment
         // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        TextView textView = new TextView(getActivity());
-        return textView;
+        return new TextView(getActivity());
     }
 
 }
