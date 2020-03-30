@@ -28,7 +28,7 @@ public class TestSerializable implements Serializable
     {
         return "{" +
                 "name:" + name +
-                "\nid:" + id +
+                ",id:" + id +
                 "}";
     }
 }

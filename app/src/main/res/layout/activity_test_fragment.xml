@@ -19,22 +19,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Tab 1"
             android:textAllCaps="false" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#888888" />
 
         <RadioButton
             android:id="@+id/tab_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Tab 2"
             android:textAllCaps="false" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#888888" />
 
         <RadioButton
             android:id="@+id/tab_3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Tab 3"
             android:textAllCaps="false" />
 

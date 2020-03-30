@@ -37,21 +37,24 @@ public class TestFragmentActivity extends AppCompatActivity
                                 .navigation());
                         break;
                     case R.id.tab_2:
-                        showFragment((Fragment) ARouter.getInstance().build("/fragment/tab2").withString("name", "tab2")
+                        showFragment((Fragment) ARouter.getInstance().build("/fragment/tab2")
+                                .withString("name", "tab2")
                                 .withString("parentName", "p2")
                                 .withInt("age", 2)
                                 .withInt("parentAge", 20)
                                 .navigation());
                         break;
                     case R.id.tab_3:
-                        showFragment((Fragment) ARouter.getInstance().build("/fragment/tab3").withString("name", "tab3")
+                        showFragment((Fragment) ARouter.getInstance().build("/fragment/tab3")
+                                .withString("name", "tab3")
                                 .withString("parentName", "p3")
                                 .withInt("age", 3)
                                 .withInt("parentAge", 30)
                                 .navigation());
                         break;
                     default:
-                        showFragment((Fragment) ARouter.getInstance().build("/fragment/tabX").withString("name", "tabX")
+                        showFragment((Fragment) ARouter.getInstance().build("/fragment/tabX")
+                                .withString("name", "tabX")
                                 .withString("parentName", "pX")
                                 .withInt("age", 0)
                                 .withInt("parentAge", 0)

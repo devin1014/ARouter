@@ -63,7 +63,7 @@ public class TestParcelable implements Parcelable
     {
         return "{" +
                 "name:" + name +
-                "\nid:" + id +
+                ",id:" + id +
                 "}";
     }
 }

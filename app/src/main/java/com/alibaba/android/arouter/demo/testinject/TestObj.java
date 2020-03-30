@@ -28,7 +28,7 @@ public class TestObj
     {
         return "{" +
                 "name:" + name +
-                "\nid:" + id +
+                ",id:" + id +
                 "}";
     }
 }
