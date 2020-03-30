@@ -163,10 +163,10 @@ final class _ARouter {
         }
     }
 
-    static void inject(Object thiz) {
+    static void inject(Object thiz, Class<?>... classes) {
         AutowiredService autowiredService = ((AutowiredService) ARouter.getInstance().build("/arouter/service/autowired").navigation());
         if (null != autowiredService) {
-            autowiredService.autowire(thiz);
+            autowiredService.autowire(thiz,classes);
         }
     }
 

@@ -1,5 +1,7 @@
 package com.alibaba.android.arouter.facade.service;
 
+import android.support.annotation.Nullable;
+
 import com.alibaba.android.arouter.facade.template.IProvider;
 
 /**
@@ -15,5 +17,5 @@ public interface AutowiredService extends IProvider {
      * Autowired core.
      * @param instance the instance who need autowired.
      */
-    void autowire(Object instance);
+    void autowire(Object instance, @Nullable Class<?> ... inheritClass);
 }

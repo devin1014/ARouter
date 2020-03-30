@@ -1,8 +1,10 @@
 package com.alibaba.android.arouter.launcher;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import com.alibaba.android.arouter.exception.InitException;
 import com.alibaba.android.arouter.facade.Postcard;
@@ -10,6 +12,8 @@ import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.facade.template.ILogger;
 import com.alibaba.android.arouter.utils.Consts;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -128,8 +132,38 @@ public final class ARouter {
     /**
      * Inject params and services.
      */
-    public void inject(Object thiz) {
-        _ARouter.inject(thiz);
+    public void inject(Object object) {
+        inject(object,true);
+    }
+
+    public void inject(Object object, boolean parseInherit) {
+        if(parseInherit && object instanceof Activity){
+            injectActivity(object);
+        }
+        else{
+            _ARouter.inject(object);
+        }
+    }
+
+    /**
+     * Inject params and services for activity
+     */
+    private void injectActivity(Object object) {
+        _ARouter.inject(object, parseObjectInherits(object));
+    }
+
+    private Class<?>[] parseObjectInherits(@NonNull Object object){
+        Class<?> targetClass = object.getClass();
+        List<Class<?>> list = new ArrayList<>();
+        while (targetClass!=null
+                && !targetClass.getName().equalsIgnoreCase("android.support.v7.app.AppCompatActivity")
+                    && !targetClass.getName().equalsIgnoreCase("android.app.Activity")
+                        && !targetClass.getName().equalsIgnoreCase("java.lang.Object")){
+            list.add(targetClass);
+            targetClass = targetClass.getSuperclass();
+        }
+
+        return list.toArray(new Class[0]);
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.alibaba.android.arouter.core;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.util.LruCache;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -31,13 +32,24 @@ public class AutowiredServiceImpl implements AutowiredService {
     }
 
     @Override
-    public void autowire(Object instance) {
-        String className = instance.getClass().getName();
+    public void autowire(Object instance, @Nullable Class<?>... inheritClass) {
+        if(inheritClass==null || inheritClass.length==0){
+            autowireObject(instance, instance.getClass());
+        }
+        else{
+            for(Class<?> clazz : inheritClass){
+                autowireObject(instance, clazz);
+            }
+        }
+    }
+
+    private void autowireObject(Object instance, Class<?> clazz) {
+        String className = clazz.getName();
         try {
             if (!blackList.contains(className)) {
                 ISyringe autowiredHelper = classCache.get(className);
                 if (null == autowiredHelper) {  // No cache.
-                    autowiredHelper = (ISyringe) Class.forName(instance.getClass().getName() + SUFFIX_AUTOWIRED).getConstructor().newInstance();
+                    autowiredHelper = (ISyringe) Class.forName(className + SUFFIX_AUTOWIRED).getConstructor().newInstance();
                 }
                 autowiredHelper.inject(instance);
                 classCache.put(className, autowiredHelper);
